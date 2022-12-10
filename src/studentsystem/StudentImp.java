@@ -35,7 +35,7 @@ public class StudentImp implements Crud {
     public void showAllStudent() {
         con = DBConnection.createConnection();
         String query = "select * from student";
-        System.out.println("Employee Details:");
+        System.out.println("Student Details:");
         System.out.println("--------------------------------");
         System.out.format("%s\t%s\t%s\t%s\n", "ID", "Name", "Address", "Marks");
         try {
@@ -61,14 +61,14 @@ public class StudentImp implements Crud {
     @Override
     public void updateStudent(int id, String name) {
         con = DBConnection.createConnection();
-        String query = "update employee set name=? where id=?";
+        String query = "update student set name=? where id=?";
         try {
             PreparedStatement pt = con.prepareStatement(query);
             pt.setString(1, name);
             pt.setInt(2, id);
             int c = pt.executeUpdate();
             if (c != 0) {
-                System.out.println("Employee Details updated successfully !!");
+                System.out.println("Student Details updated successfully !!");
             }
 
         } catch (Exception ex) {
@@ -80,7 +80,7 @@ public class StudentImp implements Crud {
     @Override
     public void deleteStudent(int id) {
         con = DBConnection.createConnection();
-        String query = "delete from employee where id=?";
+        String query = "delete from student where id=?";
         try {
             PreparedStatement pstm = con.prepareStatement(query);
             pstm.setInt(1, id);
